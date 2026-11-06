@@ -16,11 +16,10 @@ class KeithleyEquipment(midas.frontend.EquipmentBase):
             rewriting the equipment status to the ODB on every cycle.
     """
 
-    def __init__(self, client, hostname="keithley01.ucn.triumf.ca", bank_name="DMM0"):
-        # The name of our equipment. This name will be used on the midas status
-        # page, and our info will appear in /Equipment/<equip_name> in the ODB.
-        equip_name = "KeithleyDMM6500"
-
+    def __init__(self, client, 
+                 equip_name="KeithleyDMM01",
+                 hostname="keithleydmm01.ucn.triumf.ca", 
+                 bank_name="DMM0"):
         default_common = midas.frontend.InitialEquipmentCommon()
         default_common.equip_type = midas.EQ_PERIODIC
         default_common.read_when = midas.RO_ALWAYS

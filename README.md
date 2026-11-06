@@ -24,3 +24,7 @@ Goal: connect to the Keithley DMM6500 multimeter via ethernet and read a single 
   * `resistance_4wire` — 4-wire resistance (Ohm)
 
 The reading is written to bank `DMM0` (one `TID_DOUBLE`).
+
+## Multiplexer Board
+
+We have the 2000-SCAN board
