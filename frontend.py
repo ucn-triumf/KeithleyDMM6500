@@ -40,6 +40,10 @@ class KeithleyEquipment(midas.frontend.EquipmentBase):
         # quantity: one of KeithleyDMM6500.MEASURE_CMD keys
         default_settings = {'ip_address': hostname,
                             'quantity': 'voltage',
+                            'Options quantity': ['voltage', 
+                                                 'temperature', 
+                                                 'resistance', 
+                                                 'resistance_4wire'],
                             f'Names {self.bank_name}': ['reading'],
                             }
 
