@@ -178,6 +178,13 @@ class KeithleyDMM6500(object):
         """
         assert hasattr(self, 'n_channels'), "configure_scan() must be called before scan()"
 
+        # the instrument refuses to scan with the front terminals selected. The
+        # TERMINALS switch is a physical button and cannot be set over SCPI
+        terminals = self.query(':ROUT:TERM?')
+        assert terminals == 'REAR', \
+            f"Scan needs the rear terminals, but the TERMINALS switch is set to '{terminals}'. " \
+            "Press TERMINALS on the instrument front panel to select REAR"
+
         # clear buffer, run the scan, wait for completion, then fetch the readings
         response = self.query(f':TRAC:CLE "{self.SCAN_BUFFER}";:INIT;*WAI;'
                               f':TRAC:DATA? 1, {self.n_channels}, "{self.SCAN_BUFFER}", READ')

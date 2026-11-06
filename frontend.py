@@ -156,14 +156,7 @@ class KeithleyEquipment(midas.frontend.EquipmentBase):
             self.set_status(f"Scan config failed: {err}", "redLight")
 
     def resize_history_names(self):
-        """Match the length of the history names array to the bank length.
-
-        mlogger skips history for the whole equipment if the names array is
-        shorter than the bank. Existing names are kept, new entries are empty
-        (mlogger then labels them <bank>_<index>). Only writes to the ODB if the
-        length differs, so a call from settings_changed_func re-triggers the
-        settings callback at most once.
-        """
+        """Match the length of the history names array to the bank length."""
         names_key = f'Names {self.bank_name}'
         names = self.settings[names_key]
 
