@@ -18,8 +18,8 @@ One frontend (`KeithleyDMM6500FE`) runs one equipment per DMM, defined in `Keith
 
 | Equipment       | Default host                  | Bank   | Scanner   |
 |-----------------|-------------------------------|--------|-----------|
-| `KeithleyDMM01` | `keithleydmm01.ucn.triumf.ca` | `DMM0` | 2000-SCAN |
-| `KeithleyDMM02` | `keithleydmm02.ucn.triumf.ca` | `DMM1` | none      |
+| `KeithleyDMM01` | `keithleydmm01.ucn.triumf.ca` | `DMM0` | none      |
+| `KeithleyDMM02` | `keithleydmm02.ucn.triumf.ca` | `DMM1` | 2000-SCAN |
 
 `/Equipment/<equipment>/Settings`:
 
@@ -40,3 +40,4 @@ One DMM has a 2000-SCAN card (10 channels, 2-wire measurements only).
 * Set the front-panel TERMINALS switch to REAR.
 * All channels use the same `quantity`. The scan is configured at startup and again whenever the settings change, so `quantity` and `is_multiplex` can be edited live.
 * Each cycle: `:TRAC:CLE`, `:INIT`, `*WAI`, `:TRAC:DATA? 1, 10, "defbuffer1", READ`.
+* The 2000-SCAN switches channels with mechanical relays, and each switch makes a click. A scan of all 10 channels clicks at least 10 times. Watch for relay wear. Every channel's relay operates once per scan, which at a 1000 ms period is about 86,000 operations per channel per day, or roughly 30 million a year. Relays have a finite life, and switching a live signal wears them faster than switching with no load.
