@@ -5,6 +5,7 @@ Goal: connect to the Keithley DMM6500 multimeter via ethernet and read a single 
 ## Resources
 
 * [DMM6500 reference manual](https://www.manualslib.com/manual/1440440/Keithley-Dmm6500.html)
+* [SCAN multiplex card manual](https://download.tek.com/manual/2000SCAN-901-01_F-Jan-2014.pdf)
 
 ## TCP Connection
 
@@ -14,12 +15,7 @@ Goal: connect to the Keithley DMM6500 multimeter via ethernet and read a single 
 
 ## MIDAS settings
 
-One frontend (`KeithleyDMM6500FE`) runs one equipment per DMM, defined in `KeithleyFrontend.__init__`:
-
-| Equipment       | Default host                  | Bank   | Scanner   |
-|-----------------|-------------------------------|--------|-----------|
-| `KeithleyDMM01` | `keithleydmm01.ucn.triumf.ca` | `DMM0` | none      |
-| `KeithleyDMM02` | `keithleydmm02.ucn.triumf.ca` | `DMM1` | 2000-SCAN |
+One frontend (`KeithleyDMM6500FE`) runs one equipment per DMM
 
 `/Equipment/<equipment>/Settings`:
 
