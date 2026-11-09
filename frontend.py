@@ -14,15 +14,16 @@ class KeithleyFrontend(midas.frontend.FrontendBase):
     """
     def __init__(self):
         midas.frontend.FrontendBase.__init__(self, "KeithleyDMM6500FE")
-        # one equipment per DMM. Only keithleydmm01 has the 2000-SCAN card
+        
+        # one equipment per DMM
         self.add_equipment(KeithleyEquipment(self.client,
                                              equip_name="KeithleyDMM01",
                                              hostname="keithleydmm01.ucn.triumf.ca",
-                                             bank_name="DMM0"))
+                                             bank_name="DMM1"))
         self.add_equipment(KeithleyEquipment(self.client,
                                              equip_name="KeithleyDMM02",
                                              hostname="keithleydmm02.ucn.triumf.ca",
-                                             bank_name="DMM1"))
+                                             bank_name="DMM2"))
 
     def frontend_exit(self):
         """Close all connections to Keithley devices on the way out."""
